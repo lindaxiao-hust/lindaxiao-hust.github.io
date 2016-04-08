@@ -71,7 +71,7 @@
 在Hexo站点配置文件_config.yml中加入sitemap插件12# Extensionsplugins: hexo-generator-sitemap
 执行命令生成sitemap文件12hexo cleanhexo g
 以上操作顺利无误的话，我们可以在Hexo站点的public文">
-<meta property="og:updated_time" content="2016-04-08T13:02:39.939Z">
+<meta property="og:updated_time" content="2016-04-08T13:23:05.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next添加sitemap">
 <meta name="twitter:description" content="执行命令安装sitemap1npm install hexo-generator-sitemap --save
@@ -297,7 +297,7 @@
 <a id="more"></a>
 <h4 id="提交sitemap到Google"><a href="#提交sitemap到Google" class="headerlink" title="提交sitemap到Google"></a>提交sitemap到Google</h4><p>这块在<a href="http://theme-next.iissnan.com/third-party-services.html#google-webmaster-tools" target="_blank" rel="external">官方文档</a>里面有提到（官方文档其实很容易上手，跟着官方走还是很容易的，有些地方可能不够详细，但是网上关于next的配置博客也不少，如<a href="http://fionat.github.io/blog/2013/10/23/sitemap/" target="_blank" rel="external">｜Hexo优化｜如何向google提交sitemap（详细）</a>），这里给出傻瓜式详细步骤：</p>
 <ol>
-<li>首先进入<a href="https://www.google.com/webmasters/verification/home?hl=en" target="_blank" rel="external">Google Webmaster Central</a></li>
+<li>进入<a href="https://www.google.com/webmasters/verification/home?hl=en" target="_blank" rel="external">Google Webmaster Central</a></li>
 <li>点击骚红色的”ADD A PROPERTY”</li>
 <li>在弹出来的小框中加入你的站点地址<a href="http://yoursite.com，然后点击&quot;Continue" target="_blank" rel="external">http://yoursite.com，然后点击&quot;Continue</a>“</li>
 <li><p>Tab栏选择”Alternate methods”，选中HTML tag可以看见</p>
@@ -313,17 +313,22 @@
 </li>
 </ol>
 <h4 id="提交sitemap到百度"><a href="#提交sitemap到百度" class="headerlink" title="提交sitemap到百度"></a>提交sitemap到百度</h4><p><a href="http://zhiho.github.io/2015/09/29/hexo-next/" target="_blank" rel="external">Hexo搭建GitHub博客（三）- NexT主题配置使用</a> #baidusitemap安装配置 中也已经提到了，“普通的Sitemap格式不符合百度的要求”，所以我们需要对度娘特殊处理：</p>
+<h5 id="执行命令安装百度sitemap"><a href="#执行命令安装百度sitemap" class="headerlink" title="执行命令安装百度sitemap"></a>执行命令安装百度sitemap</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+<h5 id="站点配置文件中加入百度sitemap插件"><a href="#站点配置文件中加入百度sitemap插件" class="headerlink" title="站点配置文件中加入百度sitemap插件"></a>站点配置文件中加入百度sitemap插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">plugins: hexo-generator-baidu-sitemap</span><br></pre></td></tr></table></figure>
+<h5 id="执行命令生成百度sitemap文件"><a href="#执行命令生成百度sitemap文件" class="headerlink" title="执行命令生成百度sitemap文件"></a>执行命令生成百度sitemap文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h5 id="提交sitemap到百度-1"><a href="#提交sitemap到百度-1" class="headerlink" title="提交sitemap到百度"></a>提交sitemap到百度</h5><p>这部分与Google的处理方式类似：</p>
 <ol>
-<li><p>执行命令安装百度sitemap</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+<li>进入<a href="http://www.sousuoyinqingtijiao.com/baidu/tijiao/" target="_blank" rel="external">百度链接提交通道</a>，点击<a href="http://zhanzhang.baidu.com/site/siteadd" target="_blank" rel="external">验证网站所有权</a>（或者直接进入）</li>
+<li>输入你的站点地址<a href="http://yoursite.com，然后点击“下一步”" target="_blank" rel="external">http://yoursite.com，然后点击“下一步”</a></li>
+<li><p>选中“HTML标签验证”可以看见</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;baidu-site-verification&quot; content=&quot;xxxxxxxx&quot; /&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>站点配置文件中加入百度sitemap插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">plugins: hexo-generator-baidu-sitemap</span><br></pre></td></tr></table></figure>
+<li><p>与Google不同的是，我们并不能通过在_config.yml中新建baidu_site_verification字段的方式进行验证（我试过好像不行），所以我们直接在Hexo站点的<strong>public</strong>文件夹中找到<strong>index.html</strong>文件，并在其中加上3中的验证标签</p>
 </li>
-<li><p>执行命令生成百度sitemap文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<li><p>执行命令重新发布站点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>提交sitemap到百度<br>这部分与Google的处理方式类似</p>
+<li><p>回到3中的百度验证网站页面，点击“完成验证”，done！</p>
 </li>
 </ol>
 
@@ -533,7 +538,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行命令安装sitemap"><span class="nav-number">1.</span> <span class="nav-text">执行命令安装sitemap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Hexo站点配置文件-config-yml中加入sitemap插件"><span class="nav-number">2.</span> <span class="nav-text">在Hexo站点配置文件_config.yml中加入sitemap插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行命令生成sitemap文件"><span class="nav-number">3.</span> <span class="nav-text">执行命令生成sitemap文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交sitemap到Google"><span class="nav-number">4.</span> <span class="nav-text">提交sitemap到Google</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交sitemap到百度"><span class="nav-number">5.</span> <span class="nav-text">提交sitemap到百度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行命令安装sitemap"><span class="nav-number">1.</span> <span class="nav-text">执行命令安装sitemap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Hexo站点配置文件-config-yml中加入sitemap插件"><span class="nav-number">2.</span> <span class="nav-text">在Hexo站点配置文件_config.yml中加入sitemap插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行命令生成sitemap文件"><span class="nav-number">3.</span> <span class="nav-text">执行命令生成sitemap文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交sitemap到Google"><span class="nav-number">4.</span> <span class="nav-text">提交sitemap到Google</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交sitemap到百度"><span class="nav-number">5.</span> <span class="nav-text">提交sitemap到百度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行命令安装百度sitemap"><span class="nav-number">5.1.</span> <span class="nav-text">执行命令安装百度sitemap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#站点配置文件中加入百度sitemap插件"><span class="nav-number">5.2.</span> <span class="nav-text">站点配置文件中加入百度sitemap插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行命令生成百度sitemap文件"><span class="nav-number">5.3.</span> <span class="nav-text">执行命令生成百度sitemap文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提交sitemap到百度-1"><span class="nav-number">5.4.</span> <span class="nav-text">提交sitemap到百度</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
